@@ -28,6 +28,8 @@ Global population raster (https://ghsl.jrc.ec.europa.eu/download.php); Download 
 
 ---
 
+(insert flow chart here, when I figure out how)
+
 Drag all of these as layers into QGIS or ArcGIS.  
 
 Merge the 6 vcm-orm-ntl nighttime lighting rasters into one large raster.
@@ -36,21 +38,13 @@ Join the Global GDP .csv with the world countries shapefile, and only use the 20
 
 Use the zonal statistics process on the nighttime lighting raster (with the joined countries shapefile), and again on the global population raster (with the joined countries shapefile).  This should leave you with a countries shapefile containing GDP data, nighttime lighting zonal statistics, and population zonal statistics - all-in-one.  Export this as a .csv.  
 
----
-
-Upload the .csv into MS Azure Machine Learning Studio.  Begin an experiment using this data.  Select the columns (GDP, sum zonal stats for NTL, and sum zonal stats for population).  Clean the missing data from those columns.  
-
-
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
 ## Running the tests
 
 Explain how to run the automated tests for this system
+
+Upload the .csv into MS Azure Machine Learning Studio.  Begin an experiment using this data.  Select the columns (GDP, sum zonal stats for NTL, and sum zonal stats for population).  Clean the missing data from those columns.
+
+(continue with further AzureML processes)
 
 ### Break down into end to end tests
 
@@ -78,23 +72,9 @@ Add additional notes about how to deploy this on a live system
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+**Steve Geisbert**
 
 ## Acknowledgments
 
