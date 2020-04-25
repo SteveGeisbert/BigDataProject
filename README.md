@@ -1,6 +1,6 @@
 GEOG5990 Final Project
 
-This project explores the relationship between global night time lighting, global population, and global GDP at the national level.  
+This project explores the relationship between global night time lighting, global population, and global GDP at the national level. Combining all of this data in a GIS and processing statistics based on each country, the data is used in MS Azure Machine Learning Studio to explore these relationships.   
 
 ## Getting Started
 
@@ -9,21 +9,32 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 ArcGIS or QGIS
-MS Azure Machine Learning Studio
 
-```
-Give examples
-```
+MS Azure Machine Learning Studio
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+Data required:
 
-```
-Give the example
-```
+ESRI world countries shapefile (https://hub.arcgis.com/datasets/a21fdb46d23e4ef896f31475217cbb08_1)
+
+Global GDP at national level (https://data.worldbank.org/indicator/NY.GDP.MKTP.CD)
+
+Nighttime lighting rasters (https://ngdc.noaa.gov/eog/viirs/download_dnb_composites.html); download all 6 tiles from the 2015 annual section.  Keep the vcm-orm-ntl file from each .tar for use.  
+
+Global population raster (https://ghsl.jrc.ec.europa.eu/download.php); Download the entire file (GHS-POP, 2015, 250m, Mollweide); this downloaded at an incredibly slow rate, it took about 10 hours for a 505MB zipped file.  
+
+---
+
+Drag all of these as layers into QGIS or ArcGIS.  
+
+Merge the 6 vcm-orm-ntl nighttime lighting rasters into one large raster.
+
+Join the Global GDP .csv with the world countries shapefile, and only use the 2015 GDP data (population and nighttime lighting rasters are also 2015).  This will leave several null GDP values, most of which are not actually countries (the ESRI world countries shapefile has many features that are not countries).  However, there are also several that do not match the country names in the GDP .csv.  Use that list of null values to scrub the .csv country-by-country to match the countries shapefile, and rejoin the two.  
+
+Use the zonal statistics process on the nighttime lighting raster (with the joined countries shapefile), and again on the global population raster (with the joined countries shapefile).  This should leave you with a countries shapefile containing GDP data, nighttime lighting zonal statistics, and population zonal statistics - all-in-one.  Export this as a .csv.  
 
 And repeat
 
