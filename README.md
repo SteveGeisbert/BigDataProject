@@ -36,7 +36,11 @@ Join the Global GDP .csv with the world countries shapefile, and only use the 20
 
 Use the zonal statistics process on the nighttime lighting raster (with the joined countries shapefile), and again on the global population raster (with the joined countries shapefile).  This should leave you with a countries shapefile containing GDP data, nighttime lighting zonal statistics, and population zonal statistics - all-in-one.  Export this as a .csv.  
 
-And repeat
+---
+
+Upload the .csv into MS Azure Machine Learning Studio.  Begin an experiment using this data.  Select the columns (GDP, sum zonal stats for NTL, and sum zonal stats for population).  Clean the missing data from those columns.  
+
+
 
 ```
 until finished
