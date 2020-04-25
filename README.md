@@ -1,4 +1,4 @@
-GEOG5990 Final Project
+## GEOG5990 Final Project
 
 This project explores the relationship between global night time lighting, global population, and global GDP at the national level. Combining all of this data in a GIS and processing statistics based on each country, the data is used in MS Azure Machine Learning Studio to explore these relationships.   
 
