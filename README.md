@@ -42,35 +42,15 @@ Use the zonal statistics process on the nighttime lighting raster (with the join
 
 Explain how to run the automated tests for this system
 
-Upload the .csv into MS Azure Machine Learning Studio.  Begin an experiment using this data.  Select the columns (GDP, sum zonal stats for NTL, and sum zonal stats for population).  Clean the missing data from those columns.
+Upload the .csv into MS Azure Machine Learning Studio.  Begin an experiment using this data.  Select the columns (GDP, sum zonal stats for NTL, and sum zonal stats for population).  Clean the missing data from those columns by removing the entire row for any with a 0 value.  
 
-(continue with further AzureML processes)
+Using the clip function, clip the 90th percentile peak, and select "missing" for the upper substitute value.
 
-### Break down into end to end tests
+Select the new clipped NTL sum, Population sum, and GDP sum columns to conduct the remainder of the experiment.  Which columns you select will depend on which variables you are looking for a relationship between.  Split the data (.8 achieved the greatest R2 that I found).  Train the model for a linear regression with the default settings, and score and evaluate the model.  
 
-Explain what these tests test and why
+This method was able to find a strong relationship between NTL and GDP, with an R2 of .79.  
 
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+This is a link to the published experiment on MS AzureML: https://gallery.cortanaintelligence.com/Experiment/GEOG5990-Big-Data-project
 
 ## Authors
 
@@ -78,7 +58,5 @@ Add additional notes about how to deploy this on a live system
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Much appreciation to Professor Xuantong Wang of the CU Denver Geography and Environmental Sciences department.
 
