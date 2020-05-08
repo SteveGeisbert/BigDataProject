@@ -4,7 +4,7 @@ This project explores the relationship between global night time lighting, globa
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.  There is also a link to the AzureML experiment further down this file.
 
 ### Prerequisites
 
@@ -13,8 +13,6 @@ ArcGIS or QGIS
 MS Azure Machine Learning Studio
 
 ### Installing
-
-A step by step series of examples that tell you how to get a development env running
 
 Data required:
 
@@ -28,8 +26,6 @@ Global population raster (https://ghsl.jrc.ec.europa.eu/download.php); Download 
 
 ---
 
-(insert flow chart here, when I figure out how)
-
 Drag all of these as layers into QGIS or ArcGIS.  
 
 Merge the 6 vcm-orm-ntl nighttime lighting rasters into one large raster.
@@ -39,8 +35,6 @@ Join the Global GDP .csv with the world countries shapefile, and only use the 20
 Use the zonal statistics process on the nighttime lighting raster (with the joined countries shapefile), and again on the global population raster (with the joined countries shapefile).  This should leave you with a countries shapefile containing GDP data, nighttime lighting zonal statistics, and population zonal statistics - all-in-one.  Export this as a .csv.  
 
 ## Running the tests
-
-Explain how to run the automated tests for this system
 
 Upload the .csv into MS Azure Machine Learning Studio.  Begin an experiment using this data.  Select the columns (GDP, sum zonal stats for NTL, and sum zonal stats for population).  Clean the missing data from those columns by removing the entire row for any with a 0 value.  
 
